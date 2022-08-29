@@ -18,6 +18,9 @@ input{
     border-radius: 5px;
     box-sizing: border-box;
 }
+input[type="button"]{
+    border-radius: 15px;
+}
 input:hover{
     letter-spacing: 2px;
     font-weight: bold;
@@ -126,7 +129,7 @@ body{
 .searchBtns{
     width: 100%;
     display: flex;
-    gap: 4px;
+    gap: 70px;
     justify-content: space-between;
 }
 .data{
