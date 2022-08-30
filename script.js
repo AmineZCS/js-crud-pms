@@ -10,6 +10,15 @@ let category = document.getElementById("category")
 
 
 
+// Check for Product List in Local Storage
+let prodList = [];
+if (localStorage.getItem("products") != null) {
+    prodList = JSON.parse(localStorage.getItem("products"))
+    console.log("found local storage");
+}else {
+    console.log("no local storage found");
+}
+
 // Calculate Total Price
 function getTotalPrice(){
     if (price.value != "") {
@@ -22,9 +31,59 @@ function getTotalPrice(){
 }
 
 
+
+
+
+
 // Create Product
+function createProd() {
+    let thisProd = {
+        title:title.value,
+        price:price.value,
+        taxes:taxes.value,
+        ads:ads.value,
+        discount:discount.value,
+        total:total.innerHTML,
+        count:count.value,
+        category:category.value
+    }
+    prodList.push(thisProd);
+    saveProd();
+    clearInput();
+}
+
+
+
+
+
+
+
+
+
 // Save Data in LocalStorage
+function saveProd(){
+localStorage.setItem("products", JSON.stringify(prodList));
+console.log("done!");
+}
+
+
+
+
 // Clear Inputs after creating a product
+function clearInput(){
+title.value = "";
+price.value = "";
+taxes.value = "";
+ads.value = "";
+discount.value = "";
+total.innerHTML = "";
+count.value = "";
+category.value = "";
+}
+
+
+
+
 // Search
 // Delete a product
 // Update a product
