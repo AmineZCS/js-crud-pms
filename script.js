@@ -137,9 +137,9 @@ function deleteProd(i) {
 function submit(counter){
     let btnValue = document.getElementById("create").getAttribute("value")
     console.log(btnValue)
-    if ( btnValue == "create") {
+    if ( btnValue == "Create") {
         createProd(counter);
-    }else if (btnValue == "update") {
+    }else if (btnValue == "Update") {
         submitUpdate(currUpdateBtn);
     }
 }
@@ -157,7 +157,7 @@ function updateProd(i) {
     discount.value = prodList[i].discount;
     total.innerHTML = prodList[i].total;
     category.value = prodList[i].category;
-    document.getElementById("create").setAttribute("value","update");
+    document.getElementById("create").setAttribute("value","Update");
 }
 function submitUpdate(i){
     prodList[i].title = title.value;
