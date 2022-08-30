@@ -158,6 +158,9 @@ function updateProd(i) {
     total.innerHTML = prodList[i].total;
     category.value = prodList[i].category;
     document.getElementById("create").setAttribute("value","Update");
+    document.getElementById("count").setAttribute("disabled","true");
+    getTotalPrice();
+
 }
 function submitUpdate(i){
     prodList[i].title = title.value;
@@ -169,6 +172,10 @@ function submitUpdate(i){
     prodList[i].category = category.value;
     localStorage.products = JSON.stringify(prodList);
     showData();
+    document.getElementById("create").setAttribute("value","Create");
+    clearInput();
+    document.getElementById("count").setAttribute("disabled","false");
+    getTotalPrice();
 }
 
 
