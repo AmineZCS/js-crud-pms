@@ -7,6 +7,7 @@ let discount = document.getElementById("discount")
 let total = document.getElementById("total")
 let count = document.getElementById("count")
 let category = document.getElementById("category")
+let currUpdateBtn;
 
 
 
@@ -130,11 +131,48 @@ function deleteProd(i) {
 }
 
 
+// Submit button ( Create Or Update)
+function submit(counter){
+    let btnValue = document.getElementById("create").getAttribute("value")
+    console.log(btnValue)
+    if ( btnValue == "create") {
+        createProd(counter);
+    }else if (btnValue == "update") {
+        submitUpdate(currUpdateBtn);
+    }
+}
+
+
+
 
 // Update a product
 function updateProd(i) {
-    
+    currUpdateBtn = i;
+    title.value = prodList[i].title;
+    price.value = prodList[i].price;
+    taxes.value = prodList[i].taxes;
+    ads.value = prodList[i].ads;
+    discount.value = prodList[i].discount;
+    total.innerHTML = prodList[i].total;
+    category.value = prodList[i].category;
+    document.getElementById("create").setAttribute("value","update");
 }
+function submitUpdate(i){
+    prodList[i].title = title.value;
+    prodList[i].price = price.value;
+    prodList[i].taxes = taxes.value;
+    prodList[i].ads = ads.value;
+    prodList[i].discount = discount.value;
+    prodList[i].total = total.innerHTML;
+    prodList[i].category = category.value;
+    localStorage.products = JSON.stringify(prodList);
+    showData();
+}
+
+
+
+
+
 
 // Delete All
 function deleteAll() {
