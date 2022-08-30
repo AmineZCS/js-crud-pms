@@ -50,6 +50,7 @@ function createProd() {
     prodList.push(thisProd);
     saveProd();
     clearInput();
+    showData()
 }
 
 
@@ -81,6 +82,31 @@ count.value = "";
 category.value = "";
 }
 
+
+
+// Read and Show Data In Table (output)
+function showData() {
+    let tbody = document.getElementById("tbody");
+    let table = ``;
+    for (let i = 0; i < prodList.length; i++) {
+        table +=`           <tr>
+                        <td>${i}</td>
+                        <td>${prodList[i].title}</td>
+                        <td>${prodList[i].price}</td>
+                        <td>${prodList[i].taxes}</td>
+                        <td>${prodList[i].ads}</td>
+                        <td>${prodList[i].discount}</td>
+                        <td>${prodList[i].total}</td>
+                        <td>${prodList[i].category}</td>
+                        <td><input type="button" value="Update"></td>
+                        <td><input type="button" value="Delete"></td>
+                    </tr>`
+        
+    }
+    tbody.innerHTML = table;
+    
+}
+showData();
 
 
 
