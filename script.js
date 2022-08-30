@@ -113,7 +113,9 @@ function showData() {
     let deleteAllBtn = document.getElementById("deleteAll");
     if (prodList.length < 1) {
         deleteAllBtn.style.display = "none";
-    }else deleteAllBtn.style.display = "block";
+    }else {deleteAllBtn.style.display = "block";
+    deleteAllBtn.setAttribute("value",`Delete All ( ${prodList.length} )`)
+}
 }
 
 
