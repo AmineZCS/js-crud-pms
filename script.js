@@ -12,7 +12,7 @@ let category = document.getElementById("category")
 
 // Check for Product List in Local Storage
 let prodList = [];
-if (localStorage.getItem("products") != null) {
+if (localStorage.getItem("products")){
     prodList = JSON.parse(localStorage.getItem("products"))
     console.log("found local storage");
 }else {
@@ -105,8 +105,18 @@ function showData() {
     }
     tbody.innerHTML = table;
     
+    let deleteAllBtn = document.getElementById("deleteAll");
+    if (prodList.length < 1) {
+        deleteAllBtn.style.display = "none";
+    }else deleteAllBtn.style.display = "block";
 }
-showData();
+
+
+
+
+
+
+
 
 // Delete a product
 function deleteProd(i) {
@@ -122,8 +132,14 @@ function updateProd(i) {
     
 }
 
-
+// Delete All
+function deleteAll() {
+    prodList = [];
+    localStorage.products = JSON.stringify(prodList);
+    showData();
+}
 
 
 // Search
 
+showData();
