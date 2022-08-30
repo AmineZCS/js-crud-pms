@@ -36,19 +36,23 @@ function getTotalPrice(){
 
 
 // Create Product
-function createProd() {
-    let thisProd = {
-        title:title.value,
-        price:price.value,
-        taxes:taxes.value,
-        ads:ads.value,
-        discount:discount.value,
-        total:total.innerHTML,
-        count:count.value,
-        category:category.value
+function createProd(c) {
+    if(c == ""){
+        c = 1;
     }
-    prodList.push(thisProd);
-    saveProd();
+    for (let i = 0; i < c; i++) {
+        let thisProd = {
+            title:title.value,
+            price:price.value,
+            taxes:taxes.value,
+            ads:ads.value,
+            discount:discount.value,
+            total:total.innerHTML,
+            category:category.value
+        }
+        prodList.push(thisProd);
+        saveProd();
+    }
     clearInput();
     showData()
 }
