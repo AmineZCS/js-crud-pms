@@ -63,6 +63,7 @@ body{
     width: 70%;
     text-align: center;
     margin-top: 30px;
+
 }
 .input #title{
     width: 100%;
@@ -80,7 +81,8 @@ body{
     width: 20%;
 }
 .total-price #total::before{
-    content: 'Total:';
+    content: 'Total :';
+    font-weight: bold;
 }
 .total-price #total{
     width:  15%;
@@ -92,12 +94,12 @@ body{
     vertical-align: middle;
     background-color: rgb(75, 5, 5);
 }
-.input #Create:hover{
+.input #create:hover{
     background-color: rgb(37, 5, 5);
     font-size: large;
     transition: 0.1s all;
 }
-.input #Create{
+.input #create{
     font-style: bold;
     background-color: rgb(75, 5, 5);
     cursor: pointer;

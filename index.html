@@ -26,15 +26,15 @@
       <div class="input">
             <input type="text" id="title" placeholder="Title">
             <div class="total-price">
-                <input type="number" id="price" placeholder="Price">
-                <input type="number" id="Taxes" placeholder="Taxes">
-                <input type="number" id="Ads" placeholder="Ads">
-                <input type="number" id="Discount" placeholder="Discount">
-                <small id="total">456321</small>
+                <input oninput="getTotalPrice()" type="number" id="price" placeholder="Price">
+                <input oninput="getTotalPrice()" type="number" id="taxes" placeholder="Taxes">
+                <input oninput="getTotalPrice()" type="number" id="ads" placeholder="Ads">
+                <input oninput="getTotalPrice()" type="number" id="discount" placeholder="Discount">
+                <small id="total"></small>
             </div>
             <input type="number" id="count" placeholder="Count">
-            <input type="text" id="Category" placeholder="Category">
-            <input type="button" value="Create" id="Create">
+            <input type="text" id="category" placeholder="Category">
+            <input type="button" value="Create" id="create">
       </div>
 
 
