@@ -55,7 +55,8 @@ function createProd(c) {
         saveProd();
     }
     clearInput();
-    showData()
+    showData();
+    getTotalPrice();
 }
 
 
@@ -160,6 +161,10 @@ function updateProd(i) {
     document.getElementById("create").setAttribute("value","Update");
     document.getElementById("count").setAttribute("disabled","true");
     getTotalPrice();
+    scroll({
+        top: 0,
+        behavior: "smooth"
+    })
 
 }
 function submitUpdate(i){
