@@ -98,8 +98,8 @@ function showData() {
                         <td>${prodList[i].discount}</td>
                         <td>${prodList[i].total}</td>
                         <td>${prodList[i].category}</td>
-                        <td><input type="button" value="Update"></td>
-                        <td><input type="button" value="Delete"></td>
+                        <td><input onclick="updateProd(${i})" type="button" value="Update"></td>
+                        <td><input onclick="deleteProd(${i})" type="button" value="Delete"></td>
                     </tr>`
         
     }
@@ -108,8 +108,22 @@ function showData() {
 }
 showData();
 
+// Delete a product
+function deleteProd(i) {
+    prodList.splice(i,1);
+    localStorage.products = JSON.stringify(prodList);
+    showData();
+}
+
+
+
+// Update a product
+function updateProd(i) {
+    
+}
+
+
 
 
 // Search
-// Delete a product
-// Update a product
+
