@@ -45,11 +45,24 @@
 
 
     <div class="output">
-        <input type="text" id="Search" placeholder="Search">
+        <input type="text" oninput="searchName()" id="search" placeholder="Search by title">
+
+
+
+
+
+
         <div class="searchBtns">
-            <input type="button" value="Search By Title">
-            <input type="button" value="Search By Category">
+            <input type="button" onclick="searchName('title')" id="sTitle" value="Search By Title">
+            <input type="button" onclick="searchName('category')" id="sCategory" value="Search By Category">
         </div>
+
+
+
+
+
+
+
         <input type="button" id="deleteAll" onclick="deleteAll()" value="Delete All">
         <div class="data">
             <table id="table">

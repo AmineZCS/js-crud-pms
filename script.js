@@ -7,8 +7,10 @@ let discount = document.getElementById("discount")
 let total = document.getElementById("total")
 let count = document.getElementById("count")
 let category = document.getElementById("category")
+let search = document.getElementById("search");
 let currUpdateBtn;
-
+let searchedItem = "title";
+let tbody = document.getElementById("tbody");
 
 
 // Check for Product List in Local Storage
@@ -92,11 +94,10 @@ category.value = "";
 
 // Read and Show Data In Table (output)
 function showData() {
-    let tbody = document.getElementById("tbody");
     let table = ``;
     for (let i = 0; i < prodList.length; i++) {
         table +=`           <tr>
-                        <td>${i}</td>
+                        <td>${i+1}</td>
                         <td>${prodList[i].title}</td>
                         <td>${prodList[i].price}</td>
                         <td>${prodList[i].taxes}</td>
@@ -193,9 +194,43 @@ function deleteAll() {
     prodList = [];
     localStorage.products = JSON.stringify(prodList);
     showData();
+    document.getElementById("create").setAttribute("value","Create");
 }
 
 
 // Search
+function searchName(id=searchedItem){
+    searchedItem = id;
+    let table = ``;
+    search.setAttribute("placeholder",`Search by ${id}`)
+    for (let i = 0; i < prodList.length; i++) {
+        if(prodList[i][id].toLowerCase().includes(search.value.toLowerCase())){
+        
+        table +=`           <tr>
+                        <td>${i+1}</td>
+                        <td>${prodList[i].title}</td>
+                        <td>${prodList[i].price}</td>
+                        <td>${prodList[i].taxes}</td>
+                        <td>${prodList[i].ads}</td>
+                        <td>${prodList[i].discount}</td>
+                        <td>${prodList[i].total}</td>
+                        <td>${prodList[i].category}</td>
+                        <td><input onclick="updateProd(${i})" type="button" value="Update"></td>
+                        <td><input onclick="deleteProd(${i})" type="button" value="Delete"></td>
+                    </tr>`
+        
+    
+    
+
+        }else{
+                console.log("false");
+            }
+}
+tbody.innerHTML = table;
+}
+
+
+
+
 
 showData();
