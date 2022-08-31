@@ -137,6 +137,7 @@ function deleteProd(i) {
 
 // Submit button ( Create Or Update)
 function submit(counter){
+    if (title.value != "" && price.value !="" && category.value != ""){
     let btnValue = document.getElementById("create").getAttribute("value")
     console.log(btnValue)
     if ( btnValue == "Create") {
@@ -144,6 +145,7 @@ function submit(counter){
     }else if (btnValue == "Update") {
         submitUpdate(currUpdateBtn);
     }
+}
 }
 
 
