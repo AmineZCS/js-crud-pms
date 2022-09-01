@@ -16,7 +16,7 @@ Product Management System built with Html , Css , and Js. No Database Included ,
 
 ### Screenshot
 
-![](screenshotlink.jpg)
+![](screenshot.png)
 
 
 
